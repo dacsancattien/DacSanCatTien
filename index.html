@@ -9,26 +9,28 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff9e6;
+            background: url('background-tet.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
         header {
-            background-color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.9);
             color: white;
             text-align: center;
             padding: 20px 0;
         }
         header h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 42px;
             font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 4px #000;
         }
         header p {
-            margin: 5px 0 0;
-            font-size: 18px;
+            margin: 5px 0;
+            font-size: 20px;
             font-weight: 300;
         }
         .slideshow-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 30px auto;
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -38,11 +40,12 @@
         .slide {
             display: none;
             position: relative;
-            text-align: center;
         }
         .slide img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo ảnh được cắt gọn để phù hợp container */
+            border-radius: 10px;
         }
         .active {
             display: block;
@@ -50,12 +53,14 @@
         .categories {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 900px;
         }
         .category {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #f1c40f;
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: #f39c12;
             color: white;
             font-size: 18px;
             border-radius: 20px;
@@ -64,20 +69,21 @@
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
         }
         .category:hover {
-            background-color: #d4ac0d;
+            background-color: #d35400;
             transform: scale(1.1);
         }
         footer {
-            background-color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.9);
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 20px 0;
             margin-top: 30px;
         }
         footer p {
-            margin: 0;
+            margin: 5px 0;
             font-size: 16px;
         }
         .contact-info {
@@ -88,51 +94,51 @@
 </head>
 <body>
     <header>
-        <h1>Đặc Sản Cát Tiên</h1>
+        <h1>🎉 Đặc Sản Cát Tiên 🎋</h1>
         <p>Hương vị Tết đến từ những sản phẩm chất lượng</p>
     </header>
 
     <div class="categories">
-        <div class="category">Gạo</div>
-        <div class="category">Hoa</div>
-        <div class="category">Trái Cây</div>
-        <div class="category">Bánh Tét</div>
+        <div class="category">🍚 Gạo</div>
+        <div class="category">🌸 Hoa</div>
+        <div class="category">🍊 Trái Cây</div>
+        <div class="category">🎋 Bánh Tét</div>
     </div>
 
     <div class="slideshow-container">
         <!-- Gạo -->
         <div class="slide">
-            <img src="gao/gao1.jpg" alt="Gạo chất lượng">
+            <img src="gao/gao1.jpg" alt="Gạo đặc sản">
         </div>
         <div class="slide">
             <img src="gao/gao2.jpg" alt="Gạo thơm ngon">
         </div>
         <!-- Hoa -->
         <div class="slide">
-            <img src="hoa/hoa1.jpg" alt="Hoa Tết rực rỡ">
+            <img src="hoa/hoa1.jpg" alt="Hoa Tết">
         </div>
         <div class="slide">
-            <img src="hoa/hoa2.jpg" alt="Hoa đẹp ngày Tết">
+            <img src="hoa/hoa2.jpg" alt="Hoa xuân">
         </div>
         <!-- Trái cây -->
         <div class="slide">
-            <img src="traicay/traicay1.jpg" alt="Trái cây tươi ngon">
+            <img src="traicay/traicay1.jpg" alt="Trái cây tươi">
         </div>
         <div class="slide">
-            <img src="traicay/traicay2.jpg" alt="Trái cây đặc sản">
+            <img src="traicay/traicay2.jpg" alt="Trái cây ngon">
         </div>
         <!-- Bánh -->
         <div class="slide">
-            <img src="banh/banh1.jpg" alt="Bánh Tét đặc sản">
+            <img src="banh/banh1.jpg" alt="Bánh tét truyền thống">
         </div>
         <div class="slide">
-            <img src="banh/banh2.jpg" alt="Bánh Tét ngon">
+            <img src="banh/banh2.jpg" alt="Bánh tét lá chuối">
         </div>
     </div>
 
     <footer>
         <p>© 2025 Đặc Sản Cát Tiên. Tất cả các quyền được bảo lưu.</p>
-        <p class="contact-info">Liên hệ: 0878620088</p>
+        <p class="contact-info">📞 Liên hệ: 0878620088</p>
     </footer>
 
     <script>
@@ -147,10 +153,8 @@
             currentIndex = (currentIndex + 1) % slides.length;
         }
 
-        // Hiển thị ảnh đầu tiên ngay lập tức
         showSlides();
-        // Đổi ảnh sau mỗi 3 giây
-        setInterval(showSlides, 3000);
+        setInterval(showSlides, 3000); // Chuyển ảnh mỗi 3 giây
     </script>
 </body>
 </html>
