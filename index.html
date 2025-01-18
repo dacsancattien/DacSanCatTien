@@ -29,27 +29,6 @@
             font-size: 20px;
             font-weight: 300;
         }
-        .slideshow-container {
-            max-width: 800px;
-            margin: 30px auto;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .slide {
-            display: none;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Đảm bảo ảnh được cắt gọn để phù hợp container */
-            border-radius: 10px;
-        }
-        .active {
-            display: block;
-        }
         .categories {
             display: flex;
             justify-content: center;
@@ -70,6 +49,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, background-color 0.3s;
             text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
         .category:hover {
             background-color: #d35400;
@@ -99,62 +80,15 @@
     </header>
 
     <div class="categories">
-        <div class="category">🍚 Gạo</div>
-        <div class="category">🌸 Hoa</div>
-        <div class="category">🍊 Trái Cây</div>
-        <div class="category">🎋 Bánh Tét</div>
-    </div>
-
-    <div class="slideshow-container">
-        <!-- Gạo -->
-        <div class="slide">
-            <img src="gao/gao1.jpg" alt="Gạo đặc sản">
-        </div>
-        <div class="slide">
-            <img src="gao/gao2.jpg" alt="Gạo thơm ngon">
-        </div>
-        <!-- Hoa -->
-        <div class="slide">
-            <img src="hoa/hoa1.jpg" alt="Hoa Tết">
-        </div>
-        <div class="slide">
-            <img src="hoa/hoa2.jpg" alt="Hoa xuân">
-        </div>
-        <!-- Trái cây -->
-        <div class="slide">
-            <img src="traicay/traicay1.jpg" alt="Trái cây tươi">
-        </div>
-        <div class="slide">
-            <img src="traicay/traicay2.jpg" alt="Trái cây ngon">
-        </div>
-        <!-- Bánh -->
-        <div class="slide">
-            <img src="banh/banh1.jpg" alt="Bánh tét truyền thống">
-        </div>
-        <div class="slide">
-            <img src="banh/banh2.jpg" alt="Bánh tét lá chuối">
-        </div>
+        <a href="https://www.facebook.com/61572224010768" class="category" target="_blank">🍚 Gạo</a>
+        <a href="https://www.facebook.com/61572224010768" class="category" target="_blank">🌸 Hoa</a>
+        <a href="https://www.facebook.com/61572224010768" class="category" target="_blank">🍊 Trái Cây</a>
+        <a href="https://www.facebook.com/61572224010768" class="category" target="_blank">🎋 Bánh Tét</a>
     </div>
 
     <footer>
         <p>© 2025 Đặc Sản Cát Tiên. Tất cả các quyền được bảo lưu.</p>
         <p class="contact-info">📞 Liên hệ: 0878620088</p>
     </footer>
-
-    <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showSlides() {
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active');
-            });
-            slides[currentIndex].classList.add('active');
-            currentIndex = (currentIndex + 1) % slides.length;
-        }
-
-        showSlides();
-        setInterval(showSlides, 3000); // Chuyển ảnh mỗi 3 giây
-    </script>
 </body>
 </html>
