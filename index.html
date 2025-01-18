@@ -29,51 +29,60 @@
             font-size: 20px;
             font-weight: 300;
         }
-        .slideshow-container {
-            max-width: 800px;
-            margin: 30px auto;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 900px;
         }
-        .slide {
-            display: none;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .active {
-            display: block;
-        }
-        .prev, .next {
+        .category {
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 18px;
+            border-radius: 20px;
             cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .category:hover {
+            background-color: #d35400;
+            transform: scale(1.1);
+        }
+        .slider {
+            max-width: 900px;
+            margin: 20px auto;
+            position: relative;
+            text-align: center;
+        }
+        .slider img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .slider button {
             position: absolute;
             top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
         }
-        .prev {
+        .slider button.left {
             left: 10px;
-            border-radius: 3px 0 0 3px;
         }
-        .next {
+        .slider button.right {
             right: 10px;
-            border-radius: 0 3px 3px 0;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
         }
         footer {
             background-color: rgba(231, 76, 60, 0.9);
@@ -86,7 +95,25 @@
             margin: 5px 0;
             font-size: 16px;
         }
+        .contact-info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        let currentSlide = 0;
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg']; // Thay đường dẫn ảnh của bạn tại đây
+
+        function showSlide(index) {
+            const sliderImage = document.getElementById('slider-image');
+            currentSlide = (index + images.length) % images.length; // Đảm bảo không vượt quá giới hạn
+            sliderImage.src = images[currentSlide];
+        }
+
+        function showAlert(category) {
+            alert(`Bạn đã chọn: ${category}`);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -94,66 +121,23 @@
         <p>Hương vị Tết đến từ những sản phẩm chất lượng</p>
     </header>
 
-    <!-- Slideshow hiển thị ảnh -->
-    <div class="slideshow-container">
-        <!-- Nút điều hướng -->
-        <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
-        <div class="next" onclick="changeSlide(1)">&#10095;</div>
+    <div class="slider">
+        <button class="left" onclick="showSlide(currentSlide - 1)">&#8249;</button>
+        <img id="slider-image" src="image1.jpg" alt="Ảnh Đặc Sản" />
+        <button class="right" onclick="showSlide(currentSlide + 1)">&#8250;</button>
+    </div>
 
-        <!-- Ảnh trong slideshow -->
-        <div class="slide">
-            <img src="gao/gao1.jpg" alt="Gạo đặc sản">
-        </div>
-        <div class="slide">
-            <img src="gao/gao2.jpg" alt="Gạo thơm ngon">
-        </div>
-        <div class="slide">
-            <img src="hoa/hoa1.jpg" alt="Hoa Tết">
-        </div>
-        <div class="slide">
-            <img src="hoa/hoa2.jpg" alt="Hoa xuân">
-        </div>
-        <div class="slide">
-            <img src="traicay/traicay1.jpg" alt="Trái cây tươi">
-        </div>
-        <div class="slide">
-            <img src="traicay/traicay2.jpg" alt="Trái cây ngon">
-        </div>
-        <div class="slide">
-            <img src="banh/banh1.jpg" alt="Bánh tét truyền thống">
-        </div>
-        <div class="slide">
-            <img src="banh/banh2.jpg" alt="Bánh tét lá chuối">
-        </div>
+    <div class="categories">
+        <button class="category" onclick="showAlert('Gạo')">🍚 Gạo</button>
+        <button class="category" onclick="showAlert('Hoa')">🌸 Hoa</button>
+        <button class="category" onclick="showAlert('Trái Cây')">🍊 Trái Cây</button>
+        <button class="category" onclick="showAlert('Bánh Tét')">🎋 Bánh Tét</button>
     </div>
 
     <footer>
-        <p class="contact-info">📞 Liên hệ: 087.862.00.88  </p>
+        <p>© 2025 Đặc Sản Cát Tiên. Tất cả các quyền được bảo lưu.</p>
+        <p class="contact-info">📞 Liên hệ đặt hàng: 087.862.00.88</p>
+        <p>Hoặc liên hệ qua fanpage <a href="https://www.facebook.com/61572224010768" target="_blank">Fanpage Đặc Sản Cát Tiên</a></p>
     </footer>
-
-    <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        // Hiển thị slide đầu tiên
-        showSlide(slideIndex);
-
-        // Hàm hiển thị slide
-        function showSlide(index) {
-            // Xoá active khỏi tất cả slides
-            slides.forEach(slide => slide.style.display = 'none');
-            // Hiển thị slide hiện tại
-            slides[index].style.display = 'block';
-        }
-
-        // Chuyển slide
-        function changeSlide(n) {
-            slideIndex += n;
-            // Vòng lặp về đầu/ cuối khi vượt quá số slide
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            showSlide(slideIndex);
-        }
-    </script>
 </body>
 </html>
