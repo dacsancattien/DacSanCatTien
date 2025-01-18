@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặc Sản Cát Tiên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #f8b400;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+        .slider {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border: 2px solid #f8b400;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .contact {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đặc Sản Cát Tiên</h1>
+    <p>Chuyên buôn bán các loại trái cây, lúa gạo, hoa , bánh chưng bánh tét của cát tiên</p>
+
+    <div class="slider">
+        <div class="slides">
+            <!-- Add image paths here -->
+            <img src="fruits/fruit1.jpg" alt="Fruit 1">
+            <img src="rice/rice1.jpg" alt="Rice 1">
+            <img src="flowers/flower1.jpg" alt="Flower 1">
+            <img src="cakes/cake1.jpg" alt="Cake 1">
+        </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <div class="contact">
+        <p>Contact us at: <a href="tel:0878620088">0878620088</a></p>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            const slides = document.querySelector('.slides').children;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+
+            slideIndex = (slideIndex + slides.length) % slides.length;
+            slides[slideIndex].style.display = 'block';
+        }
+
+        setInterval(() => {
+            changeSlide(1);
+        }, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
