@@ -12,17 +12,17 @@
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #fff5e6, #ffccbc);
+      background: linear-gradient(to bottom, #f5fff5, #c8e6c9);
       color: #333;
       text-align: center;
       overflow-x: hidden;
     }
 
     header {
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      background: linear-gradient(to right, #388e3c, #a5d6a7);
       color: white;
       padding: 20px;
-      border-bottom: 5px solid #ffd54f;
+      border-bottom: 5px solid #4caf50;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
@@ -45,7 +45,7 @@
     }
 
     .category-buttons button {
-      background: linear-gradient(to right, #34c759, #1e9600);
+      background: linear-gradient(to right, #6fbf73, #388e3c);
       color: white;
       padding: 10px 20px;
       border: none;
@@ -57,21 +57,26 @@
     }
 
     .category-buttons button:hover {
-      background: linear-gradient(to right, #28a745, #19692c);
+      background: linear-gradient(to right, #4caf50, #2e7d32);
     }
 
     .image-gallery {
       display: none;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
+      padding: 20px 0;
     }
 
     .image-gallery img {
-      width: 150px;
+      width: 200px;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #traicay {
+      display: flex; /* Mặc định hiển thị "Trái Cây" */
     }
 
     .cta {
@@ -80,7 +85,7 @@
     }
 
     .cta button {
-      background: linear-gradient(to right, #ff5722, #ff9800);
+      background: linear-gradient(to right, #ffcc80, #ff9800);
       color: white;
       padding: 10px 25px;
       border: none;
@@ -95,7 +100,7 @@
     }
 
     .cta button:hover {
-      background: linear-gradient(to right, #e64a19, #f57c00);
+      background: linear-gradient(to right, #ffa726, #fb8c00);
       transform: scale(1.1);
     }
 
@@ -141,7 +146,7 @@
     }
 
     footer {
-      background: linear-gradient(to left, #ff7e5f, #feb47b);
+      background: linear-gradient(to left, #388e3c, #a5d6a7);
       color: white;
       padding: 15px 0;
       font-size: 0.9em;
@@ -189,6 +194,8 @@
     </div>
 
     <div class="cta">
+      <button onclick="contact('call')"><i class="fas fa-phone-alt"></i> Gọi ngay</button>
+      <button onclick="contact('facebook')"><i class="fab fa-facebook-messenger"></i> Nhắn qua Facebook</button>
       <button onclick="showPopup()">Đặt hàng</button>
     </div>
   </main>
@@ -208,6 +215,20 @@
       const galleries = document.querySelectorAll('.image-gallery');
       galleries.forEach(gallery => gallery.style.display = 'none');
       document.getElementById(category).style.display = 'flex';
+    }
+
+    function contact(option) {
+      if (option === 'call') {
+        const confirmCall = confirm("Bạn muốn gọi ngay tới số 0878620088?");
+        if (confirmCall) {
+          window.location.href = "tel:0878620088";
+        }
+      } else if (option === 'facebook') {
+        const confirmFacebook = confirm("Bạn muốn nhắn tin qua Facebook?");
+        if (confirmFacebook) {
+          window.location.href = "https://www.facebook.com/61572224010768";
+        }
+      }
     }
 
     function showPopup() {
