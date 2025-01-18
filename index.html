@@ -12,14 +12,14 @@
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #ffd54f, #ff6f00);
+      background: linear-gradient(to bottom, #fff5e6, #ffccbc);
       color: #333;
       text-align: center;
       overflow-x: hidden;
     }
 
     header {
-      background: linear-gradient(to right, #ff6f00, #ffcc80);
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       color: white;
       padding: 20px;
       border-bottom: 5px solid #ffd54f;
@@ -48,16 +48,19 @@
     }
 
     .slides {
+      position: relative;
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: opacity 1s ease-in-out;
     }
 
     .slides img {
       width: 100%;
-      max-width: 300px;
-      height: auto;
-      margin: 0 auto;
+      display: none;
       border-radius: 10px;
+    }
+
+    .slides img:first-child {
+      display: block;
     }
 
     .cta {
@@ -65,7 +68,7 @@
     }
 
     .cta button {
-      background: linear-gradient(to right, #ff5722, #ff9800);
+      background: linear-gradient(to right, #34c759, #1e9600);
       color: white;
       padding: 10px 25px;
       border: none;
@@ -81,13 +84,43 @@
     }
 
     .cta button:hover {
-      background: linear-gradient(to right, #e64a19, #f57c00);
+      background: linear-gradient(to right, #28a745, #19692c);
       transform: scale(1.1);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
 
+    .featured-products {
+      text-align: center;
+      padding: 30px 0;
+      background: #fff;
+    }
+
+    .featured-products h2 {
+      margin-bottom: 20px;
+    }
+
+    .products-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product-item {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      background: #fefefe;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-item img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
     footer {
-      background: linear-gradient(to left, #ff6f00, #ffcc80);
+      background: linear-gradient(to left, #ff7e5f, #feb47b);
       color: white;
       padding: 15px 0;
       font-size: 0.9em;
@@ -100,6 +133,33 @@
 
     footer a:hover {
       text-decoration: underline;
+    }
+
+    footer div a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+
+    footer div a:hover {
+      color: #ffd54f;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .cta button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+
+      .products-grid {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -127,34 +187,49 @@
       <button onclick="contact('call')"><i class="fas fa-phone-alt"></i> Gọi ngay</button>
       <button onclick="contact('facebook')"><i class="fab fa-facebook-messenger"></i> Nhắn qua Facebook</button>
     </div>
+
+    <section class="featured-products">
+      <h2>Sản phẩm nổi bật</h2>
+      <div class="products-grid">
+        <div class="product-item">
+          <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
+          <p>Bánh Tết truyền thống</p>
+          <button>Đặt ngay</button>
+        </div>
+        <div class="product-item">
+          <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
+          <p>Trái cây mùa xuân</p>
+          <button>Đặt ngay</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>Liên hệ: <a href="tel:0878620088">0878620088</a></p>
-    <p>Nhắn tin qua <a href="https://www.facebook.com/61572224010768" target="_blank">Facebook</a></p>
+    <div>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://zalo.me" target="_blank"><i class="fas fa-phone-alt"></i></a>
+    </div>
   </footer>
 
   <script>
-    // JavaScript for Infinite Slideshow
-    let currentIndex = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = slides.children.length;
+    // JavaScript for Slideshow
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
 
-    function updateSlidePosition() {
-      const offset = -currentIndex * 100;
-      slides.style.transform = `translateX(${offset}%)`;
+    function showSlide(index) {
+      slides.forEach((img, i) => img.style.display = i === index ? 'block' : 'none');
     }
 
     function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlidePosition();
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
     }
 
-    function autoSlide() {
-      setInterval(nextSlide, 3000); // Auto slide every 3 seconds
-    }
-
-    autoSlide();
+    setInterval(nextSlide, 3000);
 
     // Call to Action Handler
     function contact(option) {
