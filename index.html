@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đặc sản Cát Tiên</title>
+  <title>Đặc sản Cát Tiên - Tết vui tươi</title>
   <style>
     /* CSS Styles */
     body {
@@ -11,72 +11,77 @@
       margin: 0;
       padding: 0;
       color: #333;
-      background: #f9f9f9;
+      background: #fffaf0;
       text-align: center;
     }
 
     header {
-      background: #ff5722;
+      background: #ff6f00;
       color: white;
       padding: 20px;
+      border-bottom: 5px solid #ffd54f;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      font-family: 'Brush Script MT', cursive;
     }
 
     header p {
-      margin: 5px 0 20px;
+      margin: 10px 0 20px;
       font-size: 1.2em;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 20px;
+    .slideshow {
+      position: relative;
+      max-width: 80%;
+      margin: 20px auto;
+      border: 5px solid #ffd54f;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .gallery-item img {
+    .slides img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+      display: none;
     }
 
-    .gallery-item img:hover {
-      transform: scale(1.05);
+    .slides img.active {
+      display: block;
     }
 
     .cta {
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     .cta button {
-      background: #ff5722;
+      background: #ff6f00;
       color: white;
       padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       font-size: 1.2em;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      margin: 0 10px;
     }
 
     .cta button:hover {
-      background: #e64a19;
+      background: #e65100;
     }
 
     footer {
       background: #333;
       color: white;
-      padding: 10px 0;
+      padding: 15px 0;
       font-size: 0.9em;
+      margin-top: 30px;
     }
 
     footer a {
-      color: #ffcc80;
+      color: #ffd54f;
       text-decoration: none;
     }
 
@@ -88,23 +93,22 @@
 <body>
   <header>
     <h1>Đặc sản Cát Tiên</h1>
-    <p>Khám phá hương vị đặc sản địa phương cho Tết thêm rộn ràng!</p>
+    <p>Đậm đà hương vị Tết - Đặc sản cho ngày xuân thêm ý nghĩa!</p>
   </header>
 
   <main>
-    <section class="gallery">
-      <div class="gallery-item"><img src="assets/banh/banh1.jpg" alt="Bánh đặc sản"></div>
-      <div class="gallery-item"><img src="assets/banh/banh2.jpg" alt="Bánh đặc sản"></div>
-      <div class="gallery-item"><img src="assets/gao/gao1.jpg" alt="Gạo đặc sản"></div>
-      <div class="gallery-item"><img src="assets/gao/gao2.jpg" alt="Gạo đặc sản"></div>
-      <div class="gallery-item"><img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản"></div>
-      <div class="gallery-item"><img src="assets/hoa/hoa2.jpg" alt="Hoa đặc sản"></div>
-      <div class="gallery-item"><img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản"></div>
-      <div class="gallery-item"><img src="assets/traicay/traicay2.jpg" alt="Trái cây đặc sản"></div>
+    <section class="slideshow">
+      <div class="slides">
+        <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản" class="active">
+        <img src="assets/gao/gao1.jpg" alt="Gạo đặc sản">
+        <img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản">
+        <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
+      </div>
     </section>
 
     <div class="cta">
-      <button onclick="contactNow()">Liên hệ ngay</button>
+      <button onclick="contact('call')">Gọi ngay</button>
+      <button onclick="contact('facebook')">Nhắn qua Facebook</button>
     </div>
   </main>
 
@@ -114,9 +118,36 @@
   </footer>
 
   <script>
-    // JavaScript Function
-    function contactNow() {
-      window.location.href = "https://www.facebook.com/61572224010768";
+    // JavaScript for Slideshow
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slides img');
+
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentIndex) {
+          slide.classList.add('active');
+        }
+      });
+
+      currentIndex = (currentIndex + 1) % slides.length;
+    }
+
+    setInterval(showSlides, 3000); // Change slide every 3 seconds
+
+    // Call to Action Handler
+    function contact(option) {
+      if (option === 'call') {
+        const confirmCall = confirm("Bạn muốn gọi ngay tới số 0878620088?");
+        if (confirmCall) {
+          window.location.href = "tel:0878620088";
+        }
+      } else if (option === 'facebook') {
+        const confirmFacebook = confirm("Bạn muốn nhắn tin qua Facebook?");
+        if (confirmFacebook) {
+          window.location.href = "https://www.facebook.com/61572224010768";
+        }
+      }
     }
   </script>
 </body>
