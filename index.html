@@ -47,12 +47,6 @@
       background: white;
     }
 
-    .slides {
-      position: relative;
-      display: flex;
-      transition: opacity 1s ease-in-out;
-    }
-
     .slides img {
       width: 100%;
       display: none;
@@ -65,6 +59,9 @@
 
     .cta {
       margin: 30px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
 
     .cta button {
@@ -89,34 +86,73 @@
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .featured-products {
-      text-align: center;
-      padding: 30px 0;
-      background: #fff;
+    .product-item button {
+      background: linear-gradient(to right, #ff5722, #ff9800);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
-    .featured-products h2 {
-      margin-bottom: 20px;
+    .product-item button:hover {
+      background: linear-gradient(to right, #e64a19, #f57c00);
+      transform: scale(1.1);
     }
 
-    .products-grid {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .product-item {
-      border: 1px solid #ccc;
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
-      padding: 15px;
-      background: #fefefe;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: none;
+      z-index: 1000;
     }
 
-    .product-item img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 10px;
+    .popup.active {
+      display: block;
+    }
+
+    .popup h3 {
+      margin-top: 0;
+    }
+
+    .popup button {
+      margin-top: 10px;
+      background: linear-gradient(to right, #34c759, #1e9600);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: linear-gradient(to right, #28a745, #19692c);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
     }
 
     footer {
@@ -145,22 +181,6 @@
     footer div a:hover {
       color: #ffd54f;
     }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-
-      .cta button {
-        font-size: 1em;
-        padding: 10px 20px;
-      }
-
-      .products-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
   </style>
 </head>
 <body>
@@ -173,13 +193,9 @@
     <section class="slideshow-container">
       <div class="slides">
         <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
-        <img src="assets/banh/banh2.jpg" alt="Bánh đặc sản">
         <img src="assets/gao/gao1.jpg" alt="Gạo đặc sản">
-        <img src="assets/gao/gao2.jpg" alt="Gạo đặc sản">
         <img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản">
-        <img src="assets/hoa/hoa2.jpg" alt="Hoa đặc sản">
         <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
-        <img src="assets/traicay/traicay2.jpg" alt="Trái cây đặc sản">
       </div>
     </section>
 
@@ -194,44 +210,31 @@
         <div class="product-item">
           <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
           <p>Bánh Tết truyền thống</p>
-          <button>Đặt ngay</button>
-        </div>
-        <div class="product-item">
-          <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
-          <p>Trái cây mùa xuân</p>
-          <button>Đặt ngay</button>
+          <button onclick="showPopup()">Đặt ngay</button>
         </div>
       </div>
     </section>
   </main>
 
+  <div class="overlay" onclick="hidePopup()"></div>
+  <div class="popup">
+    <h3>Chọn thông tin sản phẩm</h3>
+    <select>
+      <option value="banh1">Bánh Tét</option>
+      <option value="banh2">Bánh Chưng</option>
+    </select>
+    <button onclick="hidePopup()">Xác nhận</button>
+  </div>
+
   <footer>
     <p>Liên hệ: <a href="tel:0878620088">0878620088</a></p>
     <div>
       <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://zalo.me" target="_blank"><i class="fas fa-phone-alt"></i></a>
     </div>
   </footer>
 
   <script>
-    // JavaScript for Slideshow
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slides img');
-    const totalSlides = slides.length;
-
-    function showSlide(index) {
-      slides.forEach((img, i) => img.style.display = i === index ? 'block' : 'none');
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 3000);
-
-    // Call to Action Handler
     function contact(option) {
       if (option === 'call') {
         const confirmCall = confirm("Bạn muốn gọi ngay tới số 0878620088?");
@@ -244,6 +247,16 @@
           window.location.href = "https://www.facebook.com/61572224010768";
         }
       }
+    }
+
+    function showPopup() {
+      document.querySelector('.popup').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
+
+    function hidePopup() {
+      document.querySelector('.popup').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
     }
   </script>
 </body>
