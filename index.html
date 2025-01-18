@@ -1,177 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặc Sản Tết 2025</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-            color: #333;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #e74c3c;
-            color: white;
-            font-family: 'Georgia', serif;
-            background: url('header-tet.jpg') no-repeat center center/cover;
-            position: relative;
-        }
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        header p {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-        .cta {
-            margin-top: 20px;
-        }
-        .cta button {
-            font-size: 18px;
-            padding: 15px 30px;
-            color: white;
-            background-color: #e67e22;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .cta button:hover {
-            background-color: #d35400;
-            transform: scale(1.1);
-        }
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: 50px auto;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-        .slide {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 400px;
-            transition: opacity 1s ease-in-out;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .active {
-            display: block;
-            opacity: 1;
-        }
-        .nav-buttons {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            z-index: 3;
-        }
-        .nav-buttons button {
-            background: rgba(231, 76, 60, 0.8);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        .nav-buttons button:hover {
-            background: rgba(192, 57, 43, 0.9);
-        }
-        footer {
-            text-align: center;
-            padding: 20px 10px;
-            background-color: #e74c3c;
-            color: white;
-        }
-        footer p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặc sản Cát Tiên</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    header {
+      background: #ff5722;
+      color: white;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin: 5px 0 20px;
+      font-size: 1.2em;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .cta {
+      margin: 20px 0;
+    }
+
+    .cta button {
+      background: #ff5722;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta button:hover {
+      background: #e64a19;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 10px 0;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #ffcc80;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🌸 Đặc Sản Tết 2025 🌸</h1>
-        <p>Hương vị quê hương - Trọn vẹn tình thân</p>
-        <div class="cta">
-            <button onclick="alert('Gọi ngay: 087.862.00.88\nFanpage: https://www.facebook.com/profile.php?id=61572224010768')">Đặt Hàng Ngay</button>
-        </div>
-    </header>
+  <header>
+    <h1>Đặc sản Cát Tiên</h1>
+    <p>Khám phá hương vị đặc sản địa phương cho Tết thêm rộn ràng!</p>
+  </header>
 
-    <div class="slideshow-container">
-        <div class="slide active">
-            <img src="tet1.jpg" alt="Đặc sản Tết 1">
-        </div>
-        <div class="slide">
-            <img src="tet2.jpg" alt="Đặc sản Tết 2">
-        </div>
-        <div class="slide">
-            <img src="tet3.jpg" alt="Đặc sản Tết 3">
-        </div>
-        <div class="nav-buttons">
-            <button id="prevBtn">❮</button>
-            <button id="nextBtn">❯</button>
-        </div>
+  <main>
+    <section class="gallery">
+      <div class="gallery-item"><img src="assets/banh/banh1.jpg" alt="Bánh đặc sản"></div>
+      <div class="gallery-item"><img src="assets/banh/banh2.jpg" alt="Bánh đặc sản"></div>
+      <div class="gallery-item"><img src="assets/gao/gao1.jpg" alt="Gạo đặc sản"></div>
+      <div class="gallery-item"><img src="assets/gao/gao2.jpg" alt="Gạo đặc sản"></div>
+      <div class="gallery-item"><img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản"></div>
+      <div class="gallery-item"><img src="assets/hoa/hoa2.jpg" alt="Hoa đặc sản"></div>
+      <div class="gallery-item"><img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản"></div>
+      <div class="gallery-item"><img src="assets/traicay/traicay2.jpg" alt="Trái cây đặc sản"></div>
+    </section>
+
+    <div class="cta">
+      <button onclick="contactNow()">Liên hệ ngay</button>
     </div>
+  </main>
 
-    <footer>
-        <p>© 2025 Đặc Sản Tết. Mọi quyền được bảo lưu.</p>
-        <p>📞 Gọi: 087.862.00.88 | 💬 <a href="https://www.facebook.com/profile.php?id=61572224010768" target="_blank">Fanpage Facebook</a></p>
-    </footer>
+  <footer>
+    <p>Liên hệ: <a href="tel:0878620088">0878620088</a></p>
+    <p>Nhắn tin qua <a href="https://www.facebook.com/61572224010768" target="_blank">Facebook</a></p>
+  </footer>
 
-    <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === index) {
-                    slide.classList.add('active');
-                }
-            });
-        }
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        });
-
-        // Tự động chuyển slide
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }, 3000);
-    </script>
+  <script>
+    // JavaScript Function
+    function contactNow() {
+      window.location.href = "https://www.facebook.com/61572224010768";
+    }
+  </script>
 </body>
 </html>
