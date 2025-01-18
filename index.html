@@ -37,57 +37,15 @@
       font-size: 1.2em;
     }
 
-    .slideshow-container {
-      position: relative;
-      max-width: 80%;
-      margin: 20px auto;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      background: white;
-    }
-
-    .slides img {
-      width: 100%;
-      display: none;
-      border-radius: 10px;
-    }
-
-    .slides img:first-child {
-      display: block;
-    }
-
-    .cta {
-      margin: 30px 0;
+    .category-buttons {
+      margin: 20px 0;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .cta button {
-      background: linear-gradient(to right, #34c759, #1e9600);
-      color: white;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.2em;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
-    .cta button:hover {
-      background: linear-gradient(to right, #28a745, #19692c);
-      transform: scale(1.1);
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .product-item button {
-      background: linear-gradient(to right, #ff5722, #ff9800);
+    .category-buttons button {
+      background: linear-gradient(to right, #34c759, #1e9600);
       color: white;
       padding: 10px 20px;
       border: none;
@@ -98,7 +56,45 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
-    .product-item button:hover {
+    .category-buttons button:hover {
+      background: linear-gradient(to right, #28a745, #19692c);
+    }
+
+    .image-gallery {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .image-gallery img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .cta button {
+      background: linear-gradient(to right, #ff5722, #ff9800);
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta button:hover {
       background: linear-gradient(to right, #e64a19, #f57c00);
       transform: scale(1.1);
     }
@@ -109,7 +105,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 90%;
-      max-width: 400px;
+      max-width: 600px;
       background: white;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
@@ -122,22 +118,11 @@
       display: block;
     }
 
-    .popup h3 {
-      margin-top: 0;
-    }
-
-    .popup button {
-      margin-top: 10px;
-      background: linear-gradient(to right, #34c759, #1e9600);
-      color: white;
-      padding: 10px 20px;
+    .popup iframe {
+      width: 100%;
+      height: 400px;
       border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .popup button:hover {
-      background: linear-gradient(to right, #28a745, #19692c);
+      border-radius: 10px;
     }
 
     .overlay {
@@ -170,17 +155,6 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    footer div a {
-      margin: 0 10px;
-      color: #fff;
-      font-size: 1.5em;
-      transition: color 0.3s;
-    }
-
-    footer div a:hover {
-      color: #ffd54f;
-    }
   </style>
 </head>
 <body>
@@ -190,63 +164,50 @@
   </header>
 
   <main>
-    <section class="slideshow-container">
-      <div class="slides">
-        <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
-        <img src="assets/gao/gao1.jpg" alt="Gạo đặc sản">
-        <img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản">
-        <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
-      </div>
-    </section>
-
-    <div class="cta">
-      <button onclick="contact('call')"><i class="fas fa-phone-alt"></i> Gọi ngay</button>
-      <button onclick="contact('facebook')"><i class="fab fa-facebook-messenger"></i> Nhắn qua Facebook</button>
+    <div class="category-buttons">
+      <button onclick="showCategory('banh')">Bánh</button>
+      <button onclick="showCategory('gao')">Gạo</button>
+      <button onclick="showCategory('hoa')">Hoa</button>
+      <button onclick="showCategory('traicay')">Trái Cây</button>
     </div>
 
-    <section class="featured-products">
-      <h2>Sản phẩm nổi bật</h2>
-      <div class="products-grid">
-        <div class="product-item">
-          <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
-          <p>Bánh Tết truyền thống</p>
-          <button onclick="showPopup()">Đặt ngay</button>
-        </div>
-      </div>
-    </section>
+    <div id="banh" class="image-gallery">
+      <img src="assets/banh/banh1.jpg" alt="Bánh đặc sản">
+      <img src="assets/banh/banh2.jpg" alt="Bánh đặc sản">
+    </div>
+    <div id="gao" class="image-gallery">
+      <img src="assets/gao/gao1.jpg" alt="Gạo đặc sản">
+      <img src="assets/gao/gao2.jpg" alt="Gạo đặc sản">
+    </div>
+    <div id="hoa" class="image-gallery">
+      <img src="assets/hoa/hoa1.jpg" alt="Hoa đặc sản">
+      <img src="assets/hoa/hoa2.jpg" alt="Hoa đặc sản">
+    </div>
+    <div id="traicay" class="image-gallery">
+      <img src="assets/traicay/traicay1.jpg" alt="Trái cây đặc sản">
+      <img src="assets/traicay/traicay2.jpg" alt="Trái cây đặc sản">
+    </div>
+
+    <div class="cta">
+      <button onclick="showPopup()">Đặt hàng</button>
+    </div>
   </main>
 
   <div class="overlay" onclick="hidePopup()"></div>
   <div class="popup">
-    <h3>Chọn thông tin sản phẩm</h3>
-    <select>
-      <option value="banh1">Bánh Tét</option>
-      <option value="banh2">Bánh Chưng</option>
-    </select>
-    <button onclick="hidePopup()">Xác nhận</button>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScntA-shnCxXd4ihnDRUFXOAYWIicffL14XyAgqLC9VN0i0NA/viewform?usp=dialog" frameborder="0"></iframe>
   </div>
 
   <footer>
     <p>Liên hệ: <a href="tel:0878620088">0878620088</a></p>
-    <div>
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://zalo.me" target="_blank"><i class="fas fa-phone-alt"></i></a>
-    </div>
+    <p>Nhắn tin qua <a href="https://www.facebook.com/61572224010768" target="_blank">Facebook</a></p>
   </footer>
 
   <script>
-    function contact(option) {
-      if (option === 'call') {
-        const confirmCall = confirm("Bạn muốn gọi ngay tới số 0878620088?");
-        if (confirmCall) {
-          window.location.href = "tel:0878620088";
-        }
-      } else if (option === 'facebook') {
-        const confirmFacebook = confirm("Bạn muốn nhắn tin qua Facebook?");
-        if (confirmFacebook) {
-          window.location.href = "https://www.facebook.com/61572224010768";
-        }
-      }
+    function showCategory(category) {
+      const galleries = document.querySelectorAll('.image-gallery');
+      galleries.forEach(gallery => gallery.style.display = 'none');
+      document.getElementById(category).style.display = 'flex';
     }
 
     function showPopup() {
