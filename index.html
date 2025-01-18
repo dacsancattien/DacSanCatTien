@@ -3,128 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặc Sản Cát Tiên - Hương Vị Tết</title>
+    <title>Đặc Sản Tết 2025</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            background: url('background-tet.jpg') no-repeat center center fixed;
-            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            color: #333;
         }
         header {
-            background-color: rgba(231, 76, 60, 0.9);
-            color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 50px 20px;
+            background-color: #e74c3c;
+            color: white;
+            font-family: 'Georgia', serif;
+            background: url('header-tet.jpg') no-repeat center center/cover;
+            position: relative;
         }
         header h1 {
+            font-size: 48px;
             margin: 0;
-            font-size: 42px;
-            font-family: 'Georgia', serif;
-            text-shadow: 2px 2px 4px #000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         header p {
-            margin: 5px 0;
             font-size: 20px;
-            font-weight: 300;
+            margin-top: 10px;
+        }
+        .cta {
+            margin-top: 20px;
+        }
+        .cta button {
+            font-size: 18px;
+            padding: 15px 30px;
+            color: white;
+            background-color: #e67e22;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta button:hover {
+            background-color: #d35400;
+            transform: scale(1.1);
         }
         .slideshow-container {
-            max-width: 800px;
-            margin: 30px auto;
             position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            max-width: 100%;
+            margin: 50px auto;
             overflow: hidden;
+            border-radius: 20px;
         }
         .slide {
             display: none;
-            position: relative;
+            position: absolute;
+            width: 100%;
+            height: 400px;
         }
         .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
         }
         .active {
             display: block;
         }
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
+        .blur {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 2;
         }
-        .button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #e74c3c;
+        .blur-left {
+            left: 0;
+        }
+        .blur-right {
+            right: 0;
+        }
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 3;
+        }
+        .nav-buttons button {
+            background: rgba(231, 76, 60, 0.8);
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
-        .button:hover {
-            background-color: #c0392b;
+        .nav-buttons button:hover {
+            background: rgba(192, 57, 43, 0.9);
         }
         footer {
-            background-color: rgba(231, 76, 60, 0.9);
-            color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
+            padding: 20px 10px;
+            background-color: #e74c3c;
+            color: white;
         }
         footer p {
             margin: 5px 0;
             font-size: 16px;
         }
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>🎉 Đặc Sản Cát Tiên 🎋</h1>
-        <p>Hương vị Tết đến từ những sản phẩm chất lượng</p>
+        <h1>🌸 Đặc Sản Tết 2025 🌸</h1>
+        <p>Hương vị quê hương - Trọn vẹn tình thân</p>
+        <div class="cta">
+            <button onclick="alert('Gọi ngay: 087.862.00.88\nFanpage: https://www.facebook.com/profile.php?id=61572224010768')">Đặt Hàng Ngay</button>
+        </div>
     </header>
 
     <div class="slideshow-container">
-        <!-- Gạo -->
         <div class="slide active">
-            <img src="gao/gao1.jpg" alt="Gạo đặc sản">
+            <img src="tet1.jpg" alt="Đặc sản Tết 1">
         </div>
         <div class="slide">
-            <img src="gao/gao2.jpg" alt="Gạo thơm ngon">
-        </div>
-        <!-- Hoa -->
-        <div class="slide">
-            <img src="hoa/hoa1.jpg" alt="Hoa Tết">
+            <img src="tet2.jpg" alt="Đặc sản Tết 2">
         </div>
         <div class="slide">
-            <img src="hoa/hoa2.jpg" alt="Hoa xuân">
+            <img src="tet3.jpg" alt="Đặc sản Tết 3">
         </div>
-        <!-- Trái cây -->
-        <div class="slide">
-            <img src="traicay/traicay1.jpg" alt="Trái cây tươi">
+        <div class="blur blur-left"></div>
+        <div class="blur blur-right"></div>
+        <div class="nav-buttons">
+            <button id="prevBtn">❮</button>
+            <button id="nextBtn">❯</button>
         </div>
-        <div class="slide">
-            <img src="traicay/traicay2.jpg" alt="Trái cây ngon">
-        </div>
-        <!-- Bánh -->
-        <div class="slide">
-            <img src="banh/banh1.jpg" alt="Bánh tét truyền thống">
-        </div>
-        <div class="slide">
-            <img src="banh/banh2.jpg" alt="Bánh tét lá chuối">
-        </div>
-    </div>
-
-    <div class="button-container">
-        <button class="button" id="prevBtn">Trước</button>
-        <button class="button" id="nextBtn">Tiếp</button>
-        <button class="button" id="contactBtn">Liên Hệ</button>
     </div>
 
     <footer>
-        <p>© 2025 Đặc Sản Cát Tiên. Tất cả các quyền được bảo lưu.</p>
+        <p>© 2025 Đặc Sản Tết. Mọi quyền được bảo lưu.</p>
+        <p>📞 Gọi: 087.862.00.88 | 💬 <a href="https://www.facebook.com/profile.php?id=61572224010768" target="_blank">Fanpage Facebook</a></p>
     </footer>
 
     <script>
@@ -148,11 +180,7 @@
             showSlide(currentIndex);
         });
 
-        document.getElementById('contactBtn').addEventListener('click', () => {
-            alert('Gọi điện đặt hàng: 087.862.00.88\nHoặc nhắn tin fanpage: https://www.facebook.com/profile.php?id=61572224010768');
-        });
-
-        // Tự động chuyển ảnh
+        // Tự động chuyển slide sau 3 giây
         setInterval(() => {
             currentIndex = (currentIndex + 1) % slides.length;
             showSlide(currentIndex);
